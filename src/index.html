@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <title>Jacob Peterson</title>
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+    <meta name="description" content="Jacob Peterson's website">
+    <meta name="author" content="Jacob Peterson">
+
+    <link rel="stylesheet" href="main.css">
+    <script crossorigin src="https://unpkg.com/three@0.124.0/build/three.min.js"></script>
+</head>
+
+<body>
+
+<div id="main">
+    <h1>Jacob Peterson</h1>
+    <a href="https://www.github.com/Petersoj">
+        <img src="assets/github.png">
+    </a>
+    <a href="https://www.instagram.com/jacob.peterson.l/">
+        <img src="assets/instagram.png">
+    </a>
+    <a href="https://www.linkedin.com/in/ajacobpeterson">
+        <img src="assets/linkedin.png">
+    </a>
+</div>
+
+<!--START Not my code! Credit to: https://richardmattka.com-->
+<div id="container"></div>
+<script id="vertexShader" type="x-shader/x-vertex">
+  uniform float iGlobalTime;
+  uniform vec2 iResolution;
+  uniform vec4 iMouse;
+  uniform float audio1;
+  uniform sampler2D iChannel0;
+  uniform sampler2D iChannel1;
+
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0 );
+    gl_Position = projectionMatrix * mvPosition;
+  }
+</script>
+<script id="fragmentShader" type="x-shader/x-fragment">
+uniform float iGlobalTime;
+uniform vec2 iResolution;
+uniform vec4 iMouse;
+uniform float audio1;
+uniform sampler2D iChannel0;
+uniform sampler2D iChannel1;
+
+#define t iGlobalTime
+mat2 m(float a){float c=cos(a), s=sin(a);return mat2(c,-s,s,c);}
+float map(vec3 p){
+    p.xz*= m(2.4);p.xy*= m(.4) ;
+    vec3 q = p*3.+t;
+    return  p.x*p.y * length(p+vec3(sin(0.7)))*log(length(p)+1.) + sin(q.x+sin(q.z+sin(q.y)))*0.5 - 1. ;
+}
+
+void main(){
+  vec2 p = gl_FragCoord.xy/iResolution.y - vec2(.8,.5) ;
+
+    vec3 cl = vec3(0.);
+    float d = 2.5;
+    for(int i=0; i<=5; i++) {
+    vec3 p = vec3(0,-.2,6.) + normalize(vec3(p, -1.5))*d ;
+        float rz = map(p);
+    float f =  clamp((rz - map(p+.1))*0.5*cos(iGlobalTime*.1)*p.x, -.1, 1. );
+        vec3 l = vec3(0.1,0.3,.4) + vec3(3., 1.5, 3.)*f;
+        cl = cl*l + (1.-smoothstep(0., 2.5, rz))*.7*l;
+    d += min(rz, 1.0 );
+  }
+    gl_FragColor = vec4(cl, 1.);
+}
+</script>
+<!--END Not my code! Credit to: https://richardmattka.com-->
+
+<script src="bundle.js"></script>
+</body>
+
+</html>

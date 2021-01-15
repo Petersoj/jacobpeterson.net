@@ -1,0 +1,9 @@
+{
+  "name": "net.jacobpeterson",
+  "version": "2.0.0",
+  "description": "jacobpeterson.net",
+  "private": true,
+  "scripts": {},
+  "author": "Jacob Peterson",
+  "license": "MIT"
+}

@@ -1,33 +1,3 @@
-function setCookie(cookieName, value, exdays) {
-    var exdate = new Date();
-    exdate.setDate(exdate.getDate() + exdays);
-    var cookieValue = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
-    document.cookie = cookieName + "=" + cookieValue;
-}
-
-function getCookie(cookieName) {
-    var i, x, y, ARRcookies = document.cookie.split(";");
-    for (i = 0; i < ARRcookies.length; i++) {
-        x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
-        y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
-        x = x.replace(/^\s+|\s+$/g, "");
-        if (x == cookieName) {
-            return unescape(y);
-        }
-    }
-}
-
-var canvasDiv = document.getElementById('particle');
-var options = {
-    particleColor: '#ff0004',
-    interactive: true,
-    speed: 'medium',
-    density: 'medium'
-};
-var particleCanvas = new ParticleNetwork(canvasDiv, options);
-
-
-
 $(window).on("load", function(){
     if (getCookie("animation") == null) {
         $("#particle").animate({ opacity: 1 }, 3000);

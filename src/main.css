@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Monda:700);
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:900italic);
 
 * {
     margin: 0;
@@ -20,7 +20,7 @@ body {
 
 #name {
     position: relative;
-    font-family: 'Monda', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 6rem;
     color: white;
     white-space: nowrap;
@@ -43,6 +43,7 @@ body {
     width: 3rem;
 }
 
+/* TODO ease-in animation */
 /*.ease-animation {*/
 /*    animation-timing-function: ease-out;*/
 /*    animation-duration: 3s;*/
@@ -53,18 +54,20 @@ body {
 /*    100% { transform: translateX(10%); }*/
 /*}*/
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 725px) {
     #main {
         top: 30%;
         left: 50%;
     }
 
     #name {
-        font-size: 3.5rem;
+        font-size: 3.25rem;
+        white-space: normal;
     }
 
     #links {
         text-align: center;
+        white-space: nowrap;
     }
 
     #main a {
@@ -73,6 +76,25 @@ body {
 
     #links img {
         width: 3.5rem;
+    }
+}
+
+@media screen and (min-width : 726px) and (max-width: 1300px) {
+    #main {
+        top: 70%;
+        left: 65%;
+    }
+
+    #name {
+        font-size: 4rem;
+    }
+
+    #main a {
+        margin: 1rem;
+    }
+
+    #links img {
+        width: 3rem;
     }
 }
 

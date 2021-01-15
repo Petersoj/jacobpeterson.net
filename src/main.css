@@ -21,6 +21,8 @@ body {
 #name {
     position: relative;
     font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-style: italic;
     font-size: 6rem;
     color: white;
     white-space: nowrap;
@@ -79,7 +81,7 @@ body {
     }
 }
 
-@media screen and (min-width : 726px) and (max-width: 1300px) {
+@media screen and (min-width: 726px) and (max-width: 1300px) {
     #main {
         top: 70%;
         left: 65%;

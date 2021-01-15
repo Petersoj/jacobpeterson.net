@@ -76,7 +76,6 @@ function applyTransforms(iBrowserify) {
     iBrowserify.transform(babelify, {
         presets: ["@babel/preset-env"]
     }).transform(browserifyShim, {
-        "three": "global:THREE",
         global: true
     })
 }

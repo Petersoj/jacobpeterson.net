@@ -1,5 +1,81 @@
+@import url(https://fonts.googleapis.com/css?family=Monda:700);
+
 * {
     margin: 0;
     padding: 0;
     overflow: hidden;
+}
+
+body {
+    background-color: black;
+}
+
+#main {
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#name {
+    position: relative;
+    font-family: 'Monda', sans-serif;
+    font-size: 6rem;
+    color: white;
+    white-space: nowrap;
+    opacity: 0;
+}
+
+#links {
+    text-align: right;
+}
+
+#links a {
+    position: relative;
+    display: inline-block;
+    margin: 1rem;
+    text-decoration: none;
+    opacity: 0;
+}
+
+#links img {
+    width: 3rem;
+}
+
+/*.ease-animation {*/
+/*    animation-timing-function: ease-out;*/
+/*    animation-duration: 3s;*/
+/*    animation-name: ease-in-animation;*/
+/*}*/
+
+/*@keyframes ease-in-animation {*/
+/*    100% { transform: translateX(10%); }*/
+/*}*/
+
+@media screen and (max-width: 1000px) {
+    #main {
+        top: 30%;
+        left: 50%;
+    }
+
+    #name {
+        font-size: 3.5rem;
+    }
+
+    #links {
+        text-align: center;
+    }
+
+    #main a {
+        margin: 0.75rem;
+    }
+
+    #links img {
+        width: 3.5rem;
+    }
+}
+
+#container {
+    opacity: 0;
 }

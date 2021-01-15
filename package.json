@@ -10,6 +10,7 @@
   "author": "Jacob Peterson",
   "license": "MIT",
   "dependencies": {
+    "jquery": "^3.5.1",
     "three": "^0.124.0"
   },
   "devDependencies": {
@@ -23,6 +24,7 @@
     "yargs": "^16.2.0"
   },
   "browserify-shim": {
+    "jquery": "global:$",
     "three": "global:THREE"
   }
 }

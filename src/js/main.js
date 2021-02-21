@@ -5,8 +5,7 @@ $(window).on('load', function(){
     $('#container').animate({ opacity: 1 }, 2500);
     addFadeInAndEaseDelay('#name', 2000, 3000);
     addFadeInAndEaseDelay('#link-github', 3000, 3000);
-    addFadeInAndEaseDelay('#link-instagram', 4000, 3000);
-    addFadeInAndEaseDelay('#link-linkedin', 5000, 3000);
+    addFadeInAndEaseDelay('#link-linkedin', 4000, 3000);
 });
 
 function addFadeInAndEaseDelay(jquerySelector, delayMillis, fadeInMillis) {

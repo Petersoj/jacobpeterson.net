@@ -40,9 +40,7 @@ for (let pathIndex = 0; pathIndex < copyFileToBuildDirPaths.length; pathIndex++)
 
     console.info("Copying file %s to %s", fromPath, toPath);
 
-    fs.copyFileSync(fromPath, toPath, (err) => {
-        if (err) throw err;
-    });
+    fs.copyFileSync(fromPath, toPath);
 }
 
 // Copy directories recursively defined in 'copyDirectoryToBuildDirPaths'

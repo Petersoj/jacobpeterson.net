@@ -10,21 +10,20 @@
   "author": "Jacob Peterson",
   "license": "MIT",
   "dependencies": {
-    "jquery": "^3.5.1",
-    "three": "^0.124.0"
+    "jquery": "^3.6.0",
+    "vanta": "^0.5.21"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "browserify-shim": "^3.8.14",
-    "ncp": "^2.0.0",
-    "watchify": "^3.11.1",
-    "yargs": "^16.2.0"
+    "esmify": "^2.1.1",
+    "watchify": "^4.0.0",
+    "yargs": "^17.3.0"
   },
   "browserify-shim": {
-    "jquery": "global:$",
-    "three": "global:THREE"
+    "jquery": "global:$"
   }
 }

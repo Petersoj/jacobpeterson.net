@@ -27,14 +27,19 @@ body {
     text-align: center;
 }
 
+#name-container {
+    opacity: 0;
+    overflow: visible;
+}
+
 #name {
     position: relative;
     font-family: 'Roboto Mono', monospace;
     font-size: 4rem;
     color: white;
     white-space: nowrap;
-    opacity: 0;
-    overflow: visible;
+    letter-spacing: 0.09em;
+    transform: scale(1, 0.8);
 }
 
 #links a {
@@ -51,7 +56,7 @@ body {
 
 .ease-animation {
     animation-timing-function: ease-out;
-    animation-duration: 3.5s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
     animation-name: ease-in-animation;
 }

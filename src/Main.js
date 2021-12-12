@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 $(window).on('load', function () {
     $('#background').animate({opacity: 1}, 1500);
-    addFadeInAndEaseDelay('#name', 1500, 3000);
+    addFadeInAndEaseDelay('#name-container', 1500, 3000);
     addFadeInAndEaseDelay('#link-github', 3500, 3000);
     addFadeInAndEaseDelay('#link-linkedin', 4000, 3000);
 });

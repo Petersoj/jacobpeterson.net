@@ -1,38 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-
     <title>Jacob Peterson</title>
-    <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-    <meta name="description" content="Jacob Peterson's website">
-    <meta name="author" content="Jacob Peterson">
-
-    <script crossorigin type="text/javascript" src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>
-
-    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: "Barlow", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: clamp(12px, 1vw, 24px);
+            color: white;
+            background: url("assets/background.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px) contrast(110%);
+            box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.5), inset 2px 2px 1px 0 rgba(255, 255, 255, 0.3), inset -2px -2px 2px 1px rgba(255, 255, 255, 0.3);
+            transform: translateY(1rem) scale(0.95);
+            opacity: 0;
+            filter: blur(5px);
+            transition: all 2s cubic-bezier(1, 0, 0, 1);
+        }
+        .container.visible {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            filter: blur(0);
+        }
+        #name {
+            margin-top: 2rem;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            padding: 2rem 3rem;
+            border-radius: 5rem;
+        }
+        #name h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        #links {
+            margin-top: 2rem;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            padding: 1.5rem 2rem;
+            border-radius: 4rem;
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            transition-delay: 1s;
+        }
+        #links a {
+            width: 2.5rem;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(() => requestAnimationFrame(() =>
+                [...(document.getElementsByClassName("container"))].forEach(element =>
+                        element.classList.add("visible")))));
+    </script>
 </head>
-
 <body>
-<div id="background"></div>
-<div id="main">
-    <div id="name-container">
-        <h1 id="name">Jacob Peterson</h1>
+<div class="center">
+    <div id="name" class="container">
+        <h1>Jacob Peterson</h1>
     </div>
-    <div id="links">
-        <a id="link-github" href="https://www.github.com/Petersoj">
-            <img src="assets/github.png" alt="Github">
+</div>
+<div class="center">
+    <div id="links" class="container">
+        <a href="https://www.github.com/Petersoj">
+            <img src="assets/github.svg" alt="Github">
         </a>
-        <a id="link-linkedin" href="https://www.linkedin.com/in/ajacobpeterson">
-            <img src="assets/linkedin.png" alt="LinkedIn">
+        <a href="https://www.linkedin.com/in/ajacobpeterson">
+            <img src="assets/linkedin.svg" alt="LinkedIn">
+        </a>
+        <a href="https://www.strava.com/athletes/131923661">
+            <img src="assets/strava.svg" alt="Strava">
         </a>
     </div>
 </div>
-<script src="js/bundle.js"></script>
 </body>
-
 </html>

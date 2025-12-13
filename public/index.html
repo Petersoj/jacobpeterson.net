@@ -2,95 +2,117 @@
 <html lang="en">
 <head>
     <title>Jacob Peterson</title>
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/icon/favicon.svg">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+            content="width=device-width, viewport-fit=cover, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
         html, body {
             margin: 0;
             padding: 0;
             font-family: "Barlow", sans-serif;
             font-weight: 400;
             font-style: normal;
-            font-size: clamp(12px, 1vw, 24px);
-            color: white;
-            background: url("assets/background.jpg") no-repeat center center fixed;
-            background-size: cover;
+            font-size: clamp(14px, 1vw, 24px);
+            color: black;
+            background-color: white;
         }
+
+        .full-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
         .center {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .container {
-            background: rgba(255, 255, 255, 5%);
-            backdrop-filter: blur(4px) contrast(110%);
-            box-shadow: 0 0 8px 8px rgba(0, 0, 0, 5%), inset 0 0 2px 2px rgba(255, 255, 255, 20%);
-            transform: translateY(1rem) scale(0.95);
+
+        .blur-in {
+            transition: 2s cubic-bezier(1, 0, 0, 1);
+            transition-property: opacity, filter, transform;
+            transform: translateY(4rem);
             opacity: 0;
-            filter: blur(8px);
-            transition: all 2s cubic-bezier(1, 0, 0, 1);
+            filter: blur(32px);
         }
-        .container.visible {
-            transform: translateY(0) scale(1);
+        .blur-in.visible {
+            transform: translateY(0);
             opacity: 1;
             filter: blur(0);
         }
-        #name {
-            margin-top: 2rem;
-            margin-left: 2rem;
-            margin-right: 2rem;
-            padding: 2rem 3rem;
-            border-radius: 5rem;
+
+        .vignette {
+            box-shadow: 0 0 8rem rgba(0, 0, 0, 33%) inset;
         }
-        #name h1 {
+
+        .name {
+            margin-top: 4rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
             font-size: 3rem;
-            margin: 0;
+            text-align: center;
         }
-        #links {
+
+        .links {
             margin-top: 2rem;
-            margin-left: 2rem;
-            margin-right: 2rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
             padding: 1.5rem 2rem;
-            border-radius: 4rem;
-            display: flex;
             flex-direction: row;
             gap: 2rem;
-            transition-delay: 1s;
+            transition-delay: 200ms;
         }
-        #links img {
+        .links img {
             width: 2.5rem;
             height: 2.5rem;
         }
+
+        .picture-container {
+            transition-delay: 400ms;
+        }
+        .picture-container img {
+            position: absolute;
+            bottom: 0;
+            max-height: 66%;
+        }
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(() => requestAnimationFrame(() =>
-                [...(document.getElementsByClassName("container"))].forEach(element =>
-                        element.classList.add("visible")))));
+        document.addEventListener("DOMContentLoaded", () => {
+            const blurInFunction = () => requestAnimationFrame(() => requestAnimationFrame(() =>
+                    [...(document.getElementsByClassName("blur-in"))]
+                            .forEach(element => element.classList.add("visible"))));
+            const pictureImgTag = document.getElementById("picture");
+            pictureImgTag.addEventListener("load", blurInFunction);
+            pictureImgTag.addEventListener("error", blurInFunction);
+        });
     </script>
 </head>
 <body>
-<div class="center">
-    <div id="name" class="container">
-        <h1>Jacob Peterson</h1>
-    </div>
+<div class="picture-container center blur-in full-screen">
+    <img id="picture" src="assets/picture.jpg" alt=""/>
 </div>
-<div class="center">
-    <div id="links" class="container">
-        <a href="https://github.com/Petersoj">
-            <img src="assets/github.svg" alt="Github">
-        </a>
-        <a href="https://www.linkedin.com/in/ajacobpeterson">
-            <img src="assets/linkedin.svg" alt="LinkedIn">
-        </a>
-        <a href="https://www.strava.com/athletes/131923661">
-            <img src="assets/strava.svg" alt="Strava">
-        </a>
-        <a href="https://invision.trade">
-            <img src="assets/invision.svg" alt="Invision">
-        </a>
-    </div>
+<div class="vignette full-screen"></div>
+<h1 class="name center blur-in">Jacob Peterson</h1>
+<div class="links center blur-in">
+    <a href="https://github.com/Petersoj" target="_blank">
+        <img src="assets/icon/github.svg" alt="Github">
+    </a>
+    <a href="https://www.linkedin.com/in/ajacobpeterson" target="_blank">
+        <img src="assets/icon/linkedin.svg" alt="LinkedIn">
+    </a>
+    <a href="https://www.strava.com/athletes/131923661" target="_blank">
+        <img src="assets/icon/strava.svg" alt="Strava">
+    </a>
+    <a href="https://invision.trade" target="_blank">
+        <img src="assets/icon/invision.svg" alt="Invision">
+    </a>
 </div>
 </body>
 </html>

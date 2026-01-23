@@ -84,19 +84,14 @@
         }
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const blurInFunction = () => requestAnimationFrame(() => requestAnimationFrame(() =>
-                    [...(document.getElementsByClassName("blur-in"))]
-                            .forEach(element => element.classList.add("visible"))));
-            const pictureImgTag = document.getElementById("picture");
-            pictureImgTag.addEventListener("load", blurInFunction);
-            pictureImgTag.addEventListener("error", blurInFunction);
-        });
+        window.addEventListener("load", () =>
+                [...(document.getElementsByClassName("blur-in"))]
+                        .forEach(element => element.classList.add("visible")));
     </script>
 </head>
 <body>
 <div class="picture-container center blur-in full-screen">
-    <img id="picture" src="assets/picture.jpg" alt=""/>
+    <img src="assets/picture.jpg" alt=""/>
 </div>
 <div class="vignette full-screen"></div>
 <h1 class="name center blur-in">Jacob Peterson</h1>
